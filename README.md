@@ -1,4 +1,4 @@
-# NovaPay
+# PamaPay
 
 A production-inspired digital payment platform backend built using Java and Spring Boot.
 
