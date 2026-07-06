@@ -1,0 +1,1 @@
+-- Initial PamaPay database schema

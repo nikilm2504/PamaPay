@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: pamapay-postgres
+
+    environment:
+      POSTGRES_DB: pamapay
+      POSTGRES_USER: pamapay_user
+      POSTGRES_PASSWORD: 8933e
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - pamapay_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  pamapay_postgres_data:

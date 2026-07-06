@@ -11,9 +11,12 @@
 	<groupId>com.pamapay</groupId>
 	<artifactId>pamapay</artifactId>
 	<version>1.0.0</version>
-	<packaging>pom</packaging>
-	<name/>
-	<description/>
+	<packaging>jar</packaging>
+	<name>PamaPay</name>
+
+	<description>
+		Production-inspired digital payment backend platform
+	</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -60,8 +63,9 @@
 			<artifactId>flyway-database-postgresql</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.testcontainer</groupId>
+			<groupId>org.testcontainers</groupId>
 			<artifactId>postgresql</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -81,6 +85,11 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>junit-jupiter</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
