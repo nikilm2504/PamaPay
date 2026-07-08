@@ -5,7 +5,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/pamapay
     username: pamapay_user
-    password: 8933e
+    password: 8933
     driver-class-name: org.postgresql.Driver
 
   jpa:
