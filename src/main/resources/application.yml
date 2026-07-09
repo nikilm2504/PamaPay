@@ -3,7 +3,7 @@ spring:
     name: pamapay
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/pamapay
+    url: jdbc:postgresql://localhost:5433/pamapay?options=-c%20TimeZone=Asia/Kolkata
     username: pamapay_user
     password: 8933
     driver-class-name: org.postgresql.Driver
