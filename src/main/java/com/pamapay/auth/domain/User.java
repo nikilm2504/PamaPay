@@ -1,13 +1,15 @@
 package com.pamapay.auth.domain;
-
+import lombok.*;
 import java.time.Instant;
 import java.util.UUID;
-
+@Getter
+@AllArgsConstructor
+@Builder
 public class User {
 
     private UUID id;
 
-    private String fullName;
+    private String Name;
 
     private String email;
 
