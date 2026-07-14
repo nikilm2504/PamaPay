@@ -9,7 +9,7 @@ public class User {
 
     private UUID id;
 
-    private String Name;
+    private String name;
 
     private String email;
 

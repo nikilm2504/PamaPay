@@ -7,7 +7,7 @@ import java.util.UUID;
 
 
 @Entity
-@Table(name = "users")
+@Table(name = 'Users');
 @Getter
 @Setter
 @NoArgsConstructor
@@ -38,7 +38,7 @@ public class UserEntity {
     private String passwordHash;
 
 
-    @Column(nullable = false)
+    @Column(nullable=false)
     private String role;
 
 
