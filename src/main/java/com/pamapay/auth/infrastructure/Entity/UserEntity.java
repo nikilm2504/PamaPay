@@ -7,7 +7,7 @@ import java.util.UUID;
 
 
 @Entity
-@Table(name = 'Users');
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,7 +21,7 @@ public class UserEntity {
 
 
     @Column(nullable = false)
-    private String name;
+    private String fullName;
 
 
     @Column(

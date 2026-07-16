@@ -1,4 +1,4 @@
-package PamaPay;
+package com.pamapay;
 //import java.util.Timezone;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

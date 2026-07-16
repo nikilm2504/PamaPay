@@ -1,5 +1,11 @@
 package com.pamapay.auth.application.service;
-
+import com.pamapay.auth.domain.User;
+import com.pamapay.auth.domain.UserRole;
+import com.pamapay.auth.domain.UserStatus;
+import com.pamapay.auth.infrastructure.entity.UserEntity;
+import com.pamapay.common.exception.EmailAlreadyExistsException;
+import java.time.Instant;
+import java.util.UUID;
 import com.pamapay.auth.application.dto.RegisterUserRequest;
 import com.pamapay.auth.application.dto.RegisterUserResponse;
 import com.pamapay.auth.application.usecase.RegisterUserUseCase;
@@ -13,16 +19,15 @@ public class RegisterUserService implements RegisterUserUseCase {
 
     private final UserJpaRepository userJpaRepository;
     private final PasswordEncoder passwordEncoder;
-    private final UserMapper userMapper;
+   // private final UserMapper userMapper;
 
     public RegisterUserService(
             UserJpaRepository userJpaRepository,
-            PasswordEncoder passwordEncoder,
-            UserMapper userMapper) {
+            PasswordEncoder passwordEncoder) {
 
         this.userJpaRepository = userJpaRepository;
         this.passwordEncoder = passwordEncoder;
-        this.userMapper = userMapper;
+        //this.userMapper = userMapper;
     }
 
     @Override
@@ -33,7 +38,23 @@ public class RegisterUserService implements RegisterUserUseCase {
             throw new EmailAlreadyExistsException(request.email());
 
         }
-
-        throw new UnsupportedOperationException("User creation not implemented yet");
-
+        String encodedPassword = passwordEncoder.encode(request.password());
+        User user = User.builder()
+                .id(UUID.randomUUID())
+                .fullName(request.fullName().trim())
+                .email(request.email().trim().toLowerCase())
+                .passwordHash(encodedPassword)
+                .role(UserRole.USER)
+                .status(UserStatus.ACTIVE)
+                .createdAt(Instant.now())
+                .build();
+        UserEntity userEntity = UserMapper.toEntity(user);
+        userJpaRepository.save(userEntity);
+        return new RegisterUserResponse(
+                user.getId(),
+                user.getFullName(),
+                user.getEmail(),
+                "User registered successfully"
+        );
     }
+}
