@@ -5,6 +5,6 @@ import com.pamapay.auth.application.dto.RegisterUserResponse;
 
 public interface RegisterUserUseCase {
 
-    RegisterUserResponse register(RegisterUserRequest request);
+    RegisterUserResponse register(RegisterUserRequest request);//this is a method
 
 }
