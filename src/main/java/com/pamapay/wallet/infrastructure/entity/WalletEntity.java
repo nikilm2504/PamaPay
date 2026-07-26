@@ -20,7 +20,7 @@ import java.util.UUID;
 @NoArgsConstructor
 public class WalletEntity {
    @Id
-   private UUID Id;
+   private UUID id;
    @Column(name="user_id",nullable = false,unique=true)
    private UUID userId;
    @Column(nullable=false,precision = 19,scale=2)
@@ -30,8 +30,8 @@ public class WalletEntity {
    private CurrencyCode currency;
    @Enumerated(EnumType.STRING)
     @Column(nullable=false)
-    private WalletStatus status;
+   private WalletStatus status;
    @Column(name="credited_at",nullable=false)
-   private Instant creditedAt;
+   private Instant createdAt;
 
 }

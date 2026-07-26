@@ -19,8 +19,8 @@ public class Wallet {
 
         private CurrencyCode currency;
 
-        private WalletStatus staus;
+        private WalletStatus status;
 
-        private Instant creditedAt;
+        private Instant createdAt;
     }
 
