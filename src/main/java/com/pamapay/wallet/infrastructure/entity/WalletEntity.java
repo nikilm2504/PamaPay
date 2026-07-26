@@ -29,7 +29,7 @@ public class WalletEntity {
    @Column(nullable=false,unique=true)
    private CurrencyCode currency;
    @Enumerated(EnumType.STRING)
-    @Column(nullable=false)
+   @Column(nullable=false)
    private WalletStatus status;
    @Column(name="credited_at",nullable=false)
    private Instant createdAt;
