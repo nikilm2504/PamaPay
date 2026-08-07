@@ -5,5 +5,5 @@ import java.util.Optional;
 import java.util.UUID;
 public interface WalletJpaRepository extends JpaRepository<WalletEntity,UUID> {
    Optional<WalletEntity> findByUserId(UUID userID);
-   boolean existsByUserId(UUID userId);
+    boolean existsByUserId(UUID userId);
 }

@@ -1,7 +1,7 @@
 package com.pamapay.wallet.application.service;
 
 import com.pamapay.auth.infrastructure.repository.UserJpaRepository;
-import com.pamapay.common.exception.UserNotFoundException;
+import com.pamapay.auth.exception.UserNotFoundException;
 import com.pamapay.common.exception.WalletAlreadyExistsException;
 import com.pamapay.wallet.application.dto.CreateWalletResponse;
 import com.pamapay.wallet.application.usecase.CreateWalletUseCase;
