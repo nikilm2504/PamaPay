@@ -1,4 +1,4 @@
-package com.pamapay.common.exception;
+package com.pamapay.auth.exception;
 
 import java.util.UUID;
 
