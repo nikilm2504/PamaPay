@@ -1,5 +1,6 @@
 package com.pamapay.common.exception;
 import com.pamapay.auth.exception.UserNotFoundException;
+import com.pamapay.auth.exception.WalletNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -107,4 +108,15 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
     }
-}
+        @ExceptionHandler(WalletNotFoundException.class)
+        public ResponseEntity<ApiErrorResponse> handleWalletNotFOundException(HttpServletRequest request,WalletNotFoundException exception){
+            ApiErrorResponse apiErrorResponse=new ApiErrorResponse(
+                    Instant.now(),
+                    HttpStatus.NOT_FOUND.value(),
+                    HttpStatus.NOT_FOUND.getReasonPhrase(),
+                    exception.getMessage(),
+                    request.getRequestURI()
+            );
+                    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(apiErrorResponse);
+        }
+    }

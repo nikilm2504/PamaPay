@@ -4,10 +4,11 @@ import com.pamapay.wallet.domain.Wallet;
 import com.pamapay.wallet.domain.WalletRepository;
 import com.pamapay.wallet.infrastructure.entity.WalletEntity;
 import com.pamapay.wallet.infrastructure.mapper.WalletMapper;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 import java.util.UUID;
-
+@Repository
 public class WalletRepositoryImpl implements WalletRepository {
     private final WalletJpaRepository walletJpaRepository;
     public WalletRepositoryImpl(WalletJpaRepository walletJpaRepository){

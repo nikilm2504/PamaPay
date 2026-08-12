@@ -31,7 +31,7 @@ public class WalletEntity {
    @Enumerated(EnumType.STRING)
    @Column(nullable=false)
    private WalletStatus status;
-   @Column(name="credited_at",nullable=false)
+   @Column(name="created_at",nullable=false)
    private Instant createdAt;
 
 }
