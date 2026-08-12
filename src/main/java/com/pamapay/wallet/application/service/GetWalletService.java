@@ -5,9 +5,10 @@ import com.pamapay.wallet.application.dto.WalletResponse;
 import com.pamapay.wallet.application.usecase.GetWalletUseCase;
 import com.pamapay.wallet.domain.Wallet;
 import com.pamapay.wallet.domain.WalletRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
-
+@Service
 public class GetWalletService implements GetWalletUseCase {
     private final WalletRepository walletRepository;
     public GetWalletService(WalletRepository walletRepository){
