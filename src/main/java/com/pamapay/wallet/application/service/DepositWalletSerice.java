@@ -6,10 +6,11 @@ import com.pamapay.wallet.application.usecase.DepositWalletUseCase;
 import com.pamapay.wallet.domain.Wallet;
 import com.pamapay.wallet.domain.WalletRepository;
 import com.pamapay.wallet.domain.WalletStatus;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.UUID;
-
+@Service
 public class DepositWalletSerice implements DepositWalletUseCase {
     private final WalletRepository walletRepository;
     public DepositWalletSerice(WalletRepository walletRepository){
