@@ -3,11 +3,14 @@ import com.pamapay.auth.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.util.Currency;
 import java.time.Instant;
 import java.util.UUID;
 @Getter
+@Setter
 @Builder
 public class Wallet {
 
