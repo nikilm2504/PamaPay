@@ -33,5 +33,7 @@ public class WalletEntity {
    private WalletStatus status;
    @Column(name="created_at",nullable=false)
    private Instant createdAt;
-
+   @Version
+   @Column(nullable = false)
+   private Long version;
 }

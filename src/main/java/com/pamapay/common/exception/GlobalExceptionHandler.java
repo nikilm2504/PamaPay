@@ -1,6 +1,8 @@
 package com.pamapay.common.exception;
 import com.pamapay.auth.exception.UserNotFoundException;
 import com.pamapay.auth.exception.WalletNotFoundException;
+import com.pamapay.wallet.exception.InvalidDepositAmountException;
+import com.pamapay.wallet.exception.WalletNotActiveException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -118,5 +120,31 @@ public class GlobalExceptionHandler {
                     request.getRequestURI()
             );
                     return ResponseEntity.status(HttpStatus.NOT_FOUND).body(apiErrorResponse);
+        }
+        @ExceptionHandler(InvalidDepositAmountException.class)
+       public ResponseEntity<ApiErrorResponse> handleInvalidDepositAmount(InvalidDepositAmountException exception,HttpServletRequest request){
+           HttpStatus status= HttpStatus.BAD_REQUEST;
+           ApiErrorResponse response=new ApiErrorResponse(
+                   Instant.now(),
+                   status.value(),
+                   status.getReasonPhrase(),
+                   exception.getMessage(),
+                   request.getRequestURI()
+           );
+            return ResponseEntity.status(status).body(response);
+        }
+        @ExceptionHandler(WalletNotActiveException.class)
+      public ResponseEntity<ApiErrorResponse> handleWalletNotActive(WalletNotActiveException exception,HttpServletRequest request){
+        HttpStatus status = HttpStatus.CONFLICT;
+        ApiErrorResponse response=new ApiErrorResponse(
+                Instant.now(),
+                status.value(),
+                status.getReasonPhrase(),
+                exception.getMessage(),
+                request.getRequestURI()
+        );
+            return ResponseEntity
+                    .status(status)
+                    .body(response);
         }
     }
