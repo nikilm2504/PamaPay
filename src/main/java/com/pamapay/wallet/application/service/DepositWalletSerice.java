@@ -8,6 +8,7 @@ import com.pamapay.wallet.domain.WalletRepository;
 import com.pamapay.wallet.domain.WalletStatus;
 import com.pamapay.wallet.exception.InvalidDepositAmountException;
 import com.pamapay.wallet.exception.WalletNotActiveException;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -19,6 +20,7 @@ public class DepositWalletSerice implements DepositWalletUseCase {
         this.walletRepository=walletRepository;
     }
     @Override
+    @Transactional
     public WalletResponse deposit(UUID userId, BigDecimal amount){
         if(amount==null || amount.compareTo(BigDecimal.ZERO) <=0){
             throw new InvalidDepositAmountException(amount);

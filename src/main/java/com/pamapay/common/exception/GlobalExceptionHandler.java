@@ -6,13 +6,14 @@ import com.pamapay.wallet.exception.WalletNotActiveException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import java.util.HashMap;
 import java.util.Map;
 import java.time.Instant;
-
+import jakarta.persistence.OptimisticLockException;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -147,4 +148,37 @@ public class GlobalExceptionHandler {
                     .status(status)
                     .body(response);
         }
+        @ExceptionHandler(OptimisticLockException.class)
+        public ResponseEntity<ApiErrorResponse> handlingOptimisticLock(OptimisticLockException exception,HttpServletRequest request){
+          HttpStatus status = HttpStatus.CONFLICT;
+            ApiErrorResponse response=new ApiErrorResponse(
+                    Instant.now(),
+                    status.value(),
+                    status.getReasonPhrase(),
+                    "Wallet was modified by another request. Please try again.",
+                    request.getRequestURI()
+            );
+            return ResponseEntity
+                    .status(status)
+                    .body(response);
+        }
+    @ExceptionHandler(ObjectOptimisticLockingFailureException.class)
+    public ResponseEntity<ApiErrorResponse> handleOptimisticLockingFailure(
+            ObjectOptimisticLockingFailureException exception,
+            HttpServletRequest request) {
+
+        HttpStatus status = HttpStatus.CONFLICT;
+
+        ApiErrorResponse response = new ApiErrorResponse(
+                Instant.now(),
+                status.value(),
+                status.getReasonPhrase(),
+                "Wallet was modified by another request. Please try again.",
+                request.getRequestURI()
+        );
+
+        return ResponseEntity
+                .status(status)
+                .body(response);
+    }
     }
