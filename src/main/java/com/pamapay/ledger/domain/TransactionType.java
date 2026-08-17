@@ -1,4 +1,4 @@
-package com.pamapay.transaction.domain;
+package com.pamapay.ledger.domain;
 
 public enum TransactionType {
 

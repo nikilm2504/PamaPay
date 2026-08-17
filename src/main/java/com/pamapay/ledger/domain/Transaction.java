@@ -1,4 +1,4 @@
-package com.pamapay.transaction.domain;
+package com.pamapay.ledger.domain;
 
 import com.pamapay.ledger.domain.TransactionStatus;
 import lombok.Builder;
@@ -6,7 +6,7 @@ import lombok.Getter;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.UUID;
-import com.pamapay.transaction.domain.TransactionType;
+import com.pamapay.ledger.domain.TransactionType;
 @Getter
 @Builder
 public class Transaction {
