@@ -10,7 +10,7 @@ A production-inspired digital payment platform backend built using Java and Spri
 
 PamaPay is a backend-focused project designed to explore and implement the core engineering concepts behind modern digital payment systems.
 
-The goal of this project is not to process real payments, but to build a production-style payment backend that demonstrates secure transactions, reliability, scalability, and system design principles.
+The goal of this project is not to process real payments, but to build a production-style payment backend that demonstrates secure transactions, reliability, scalability, and system design principles
 
 ---
 
